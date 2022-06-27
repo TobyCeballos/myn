@@ -1,0 +1,44 @@
+<div class="pad">
+    <div class="container__product">
+        <div class="form__product">
+            <div class="title">
+                <h1>Productos</h1>
+            </div>
+            <form class="form__add" id="formAdd" onsubmit="return addProduct(this)">
+                <div class="inputs">
+                    <input class="name" type="text" id="name" placeholder="Nombre del producto" required>
+                    <input class="price" type="number" id="price" placeholder="Precio del prodcuto" required>
+                    <input class="description" type="text" id="description" placeholder="Descripcion del producto" required>
+                    <input class="stock" type="number" id="stock" placeholder="Stock del producto" required>
+                    <input class="thumbnail" type="text" id="thumbnail" placeholder="URL de imagen" required>
+                    <div class="flex__container">
+                        <input id="btn" class="btn__add" type="submit" value="Agregar">
+                        <a class="btn__add" href="http://localhost:8080/productos-test">Crear 5 productos</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <div class="fixed">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Stock</th>
+                        <th>Thumbnail</th>
+                        <th>Id</th>
+                    </tr>
+                    </thead>
+                </div>
+                <tbody id="product">
+                <tbody>
+            </table>
+            <div id="errProduct"></div>
+            
+        </div>
+        
+    </div>
+
+</div>
