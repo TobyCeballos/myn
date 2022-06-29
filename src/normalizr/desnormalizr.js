@@ -16,34 +16,31 @@ function print(objecto) {
     console.log(util.inspect(objecto, false, 12, true));
 }
 
-
 class norm {
     async denormalizedList(mensajesNormalizados) {
        console.log(await mensajesNormalizados)
        let listLength = JSON.stringify(mensajesNormalizados).length
        console.log(listLength)
-   
+
        let listDenormalize = denormalize(mensajesNormalizados.result, schemaMensajes, mensajesNormalizados.entities)
-       console.log(listDenormalize)
        let listDenormalizeSize = JSON.stringify(listDenormalize).length
-   
-       console.log(listDenormalize, listDenormalizeSize)
-   
-       let percent = parseInt((listLength * 100) / listDenormalizeSize)
-   
+       console.log(listDenormalizeSize)
+
+       let percent = parseInt((listDenormalizeSize * 100) / listLength)
+
        console.log(`Porcentaje de compresion del ${percent}%`)
-   
+
        return print(listDenormalize)
    }
 
-   
+
     async normalizedList() {
-        const arrayMensajes = await Contenedor.getMsg()
+        const arrayMensajes = await Contenedor.getMSGS()
         const normalizedArray = normalizarArray({ id: 'mensajes', arrayMensajes })
         const resp = print(normalizedArray)
-        return resp
+        return normalizedArray
     }
-    
+
 }
 
 const norms = new norm()
